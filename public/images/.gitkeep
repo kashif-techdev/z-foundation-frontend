@@ -1,0 +1,9 @@
+# Add these image files so the site shows real photos (not placeholders):
+#   logo.jpg       - About section
+#   health.jpg     - Services
+#   education.jpg  - Services
+#   food.jpg       - Services
+#   clothes.jpg    - Services
+#   scholarship.jpg - Services
+#   shelter.jpg    - Services
+# After adding files: restart dev server (npm run dev) and hard refresh (Ctrl+Shift+R).
