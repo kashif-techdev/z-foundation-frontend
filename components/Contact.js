@@ -116,7 +116,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="contact-row">
-                  <i className="fas fa-phone contact-icon" aria-hidden />
+                  <i className="fas fa-mobile-alt contact-icon" aria-hidden />
                   <div className="contact-info">
                     <div className="contact-label">Mobile</div>
                     <a className="contact-value contact-link" href="tel:03330202415">
