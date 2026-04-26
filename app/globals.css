@@ -623,7 +623,7 @@ section .title::after {
     0 18px 42px rgba(15, 23, 42, 0.16),
     inset 0 0 0 1px rgba(148, 163, 184, 0.26);
   transform-origin: center 100%;
-  transition: transform 0.32s ease, opacity 0.28s ease, box-shadow 0.32s ease;
+  transition: transform 0.56s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.44s ease, box-shadow 0.5s ease;
   will-change: transform, opacity;
 }
 
@@ -643,18 +643,21 @@ section .title::after {
 }
 
 .member-stack-card.is-exiting {
-  animation: member-card-exit 0.28s ease forwards;
+  animation: member-card-exit 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .member-stack-card.is-resetting {
-  animation: member-card-enter 0.46s ease both;
-  animation-delay: calc(var(--stack-index) * 80ms);
+  animation: member-card-enter 0.62s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: calc(var(--stack-index) * 110ms);
 }
 
 .member-photo-frame {
   position: relative;
   width: 100%;
   height: 68%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(145deg, #bfdbfe 0%, #dbeafe 50%, #c7d2fe 100%);
 }
 
@@ -669,9 +672,10 @@ section .title::after {
 }
 
 .member-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: calc(100% - 14px);
+  height: calc(100% - 14px);
+  object-fit: contain;
+  object-position: center;
   -webkit-user-select: none;
   user-select: none;
   pointer-events: none;
@@ -1551,8 +1555,8 @@ footer span a:hover {
   }
 
   .members-stack {
-    width: min(94vw, 360px);
-    height: clamp(360px, 102vw, 450px);
+    width: min(92vw, 320px);
+    height: clamp(320px, 88vw, 390px);
   }
 
   .member-stack-card {
@@ -1620,8 +1624,8 @@ footer span a:hover {
 
 @media (max-width: 480px) {
   .members-stack {
-    width: min(94vw, 330px);
-    height: 390px;
+    width: min(90vw, 292px);
+    height: 338px;
   }
 
   .members-eyebrow {
@@ -1629,11 +1633,21 @@ footer span a:hover {
   }
 
   .member-content {
-    padding: 14px 12px 12px;
+    padding: 12px 10px 11px;
   }
 
   .member-name {
-    font-size: 19px;
+    font-size: 17px;
+  }
+
+  .member-role {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .member-designation {
+    font-size: 10px;
+    padding: 6px 10px;
   }
 
   .services-wrapper {

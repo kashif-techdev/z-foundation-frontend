@@ -39,6 +39,8 @@ const MEMBERS = [
 const SWIPE_THRESHOLD = 95;
 const OFFSCREEN_X = 420;
 const VISIBLE_STACK = 4;
+const EXIT_ANIMATION_MS = 820;
+const RESET_ANIMATION_MS = 700;
 const FAN_TRANSFORMS = [
   { x: 0, y: 0, scale: 1, rotate: 0 },
   { x: -62, y: 26, scale: 0.94, rotate: -16 },
@@ -58,18 +60,22 @@ export default function Members() {
 
   const visibleOrder = useMemo(() => order.slice(0, VISIBLE_STACK), [order]);
 
-  const removeTopCard = (direction = 1) => {
+  const removeTopCard = (direction = 1, preserveDragPosition = true) => {
     if (!canInteract) return;
     const normalizedDirection = direction >= 0 ? 1 : -1;
     setIsAnimatingOut(true);
     setExitDirection(normalizedDirection);
-    setDragX(normalizedDirection * OFFSCREEN_X);
+    if (preserveDragPosition) {
+      setDragX(normalizedDirection * OFFSCREEN_X);
+    } else {
+      setDragX(0);
+    }
 
     window.setTimeout(() => {
       setOrder((prev) => prev.slice(1));
       setDragX(0);
       setIsAnimatingOut(false);
-    }, 280);
+    }, EXIT_ANIMATION_MS);
   };
 
   const onPointerDown = (e) => {
@@ -100,14 +106,14 @@ export default function Members() {
 
   const handleTopCardClick = () => {
     if (!canInteract || isDragging) return;
-    removeTopCard(1);
+    removeTopCard(1, false);
   };
 
   const resetStack = () => {
     setIsResetting(true);
     setOrder(MEMBERS.map((_, i) => i));
     setDragX(0);
-    window.setTimeout(() => setIsResetting(false), 520);
+    window.setTimeout(() => setIsResetting(false), RESET_ANIMATION_MS);
   };
 
   return (
@@ -116,7 +122,6 @@ export default function Members() {
         <h2 id="members-title" className="title">
           Our Members
         </h2>
-        <p className="members-eyebrow">For You</p>
         <p className="members-subtitle">
           Meet our core team behind Z-Foundation.
         </p>
