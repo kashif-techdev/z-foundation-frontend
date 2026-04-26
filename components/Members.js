@@ -39,6 +39,7 @@ const MEMBERS = [
 const SWIPE_THRESHOLD = 95;
 const SWIPE_START_X = 420;
 const EXIT_TRAVEL_X = 680;
+const TOUCH_DRAG_COMMIT_X = 10;
 const VISIBLE_STACK = 4;
 const EXIT_ANIMATION_MS = 820;
 const RESET_ANIMATION_MS = 700;
@@ -66,11 +67,12 @@ export default function Members() {
     const normalizedDirection = direction >= 0 ? 1 : -1;
     setIsAnimatingOut(true);
     setExitDirection(normalizedDirection);
-    if (preserveDragPosition) {
-      setDragX(normalizedDirection * SWIPE_START_X);
-    } else {
-      setDragX(0);
-    }
+    const startX = preserveDragPosition ? dragX : 0;
+    setDragX(startX);
+
+    window.requestAnimationFrame(() => {
+      setDragX(normalizedDirection * EXIT_TRAVEL_X);
+    });
 
     window.setTimeout(() => {
       setOrder((prev) => prev.slice(1));
@@ -93,11 +95,15 @@ export default function Members() {
     setDragX((prev) => prev + e.movementX);
   };
 
-  const onPointerUp = () => {
+  const onPointerUp = (e) => {
     if (!isDragging) return;
     setIsDragging(false);
 
-    if (Math.abs(dragX) > SWIPE_THRESHOLD) {
+    const isTouch = e?.pointerType === "touch";
+    const shouldDismissByTouch = isTouch && Math.abs(dragX) > TOUCH_DRAG_COMMIT_X;
+    const shouldDismissByThreshold = Math.abs(dragX) > SWIPE_THRESHOLD;
+
+    if (shouldDismissByTouch || shouldDismissByThreshold) {
       removeTopCard(dragX > 0 ? 1 : -1);
       return;
     }
@@ -144,13 +150,12 @@ export default function Members() {
                 <article
                   key={`${member.name}-${memberIndex}`}
                   role="listitem"
-                  className={`member-stack-card ${isTopCard ? "is-top" : ""} ${isAnimatingOut && isTopCard ? "is-exiting" : ""} ${isResetting ? "is-resetting" : ""}`}
+                  className={`member-stack-card ${isTopCard ? "is-top" : ""} ${isTopCard && isDragging ? "is-dragging" : ""} ${isResetting ? "is-resetting" : ""}`}
                   style={{
                     zIndex: VISIBLE_STACK - stackPos,
                     transform,
                     opacity,
                     "--stack-index": stackPos,
-                    "--exit-x": `${exitDirection * EXIT_TRAVEL_X}px`,
                   }}
                   onPointerDown={isTopCard ? onPointerDown : undefined}
                   onPointerMove={isTopCard ? onPointerMove : undefined}

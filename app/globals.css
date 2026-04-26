@@ -636,14 +636,14 @@ section .title::after {
   cursor: grabbing;
 }
 
+.member-stack-card.is-dragging {
+  transition: none;
+}
+
 .member-stack-card.is-top:hover {
   box-shadow:
     0 22px 50px rgba(30, 64, 175, 0.22),
     inset 0 0 0 1px rgba(125, 211, 252, 0.55);
-}
-
-.member-stack-card.is-exiting {
-  animation: member-card-exit 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .member-stack-card.is-resetting {
@@ -747,21 +747,6 @@ section .title::after {
 .members-reset-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 18px 32px rgba(37, 99, 235, 0.4);
-}
-
-@keyframes member-card-exit {
-  from {
-    opacity: 1;
-  }
-
-  85% {
-    opacity: 1;
-  }
-
-  to {
-    transform: translateX(var(--exit-x)) translateY(20px) rotate(calc(var(--exit-x) / 28)) scale(0.95);
-    opacity: 0.98;
-  }
 }
 
 @keyframes member-card-enter {
