@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Home from "@/components/Home";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import Members from "@/components/Members";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -18,7 +19,7 @@ export default function Page() {
         <Home />
         <About />
         <Services />
-        <section id="teams" aria-hidden="true" style={{ padding: 0, height: 0 }} />
+        <Members />
         <Contact />
         <Footer />
       </main>
