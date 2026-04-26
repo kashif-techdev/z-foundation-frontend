@@ -37,7 +37,8 @@ const MEMBERS = [
 ];
 
 const SWIPE_THRESHOLD = 95;
-const OFFSCREEN_X = 420;
+const SWIPE_START_X = 420;
+const EXIT_TRAVEL_X = 680;
 const VISIBLE_STACK = 4;
 const EXIT_ANIMATION_MS = 820;
 const RESET_ANIMATION_MS = 700;
@@ -66,7 +67,7 @@ export default function Members() {
     setIsAnimatingOut(true);
     setExitDirection(normalizedDirection);
     if (preserveDragPosition) {
-      setDragX(normalizedDirection * OFFSCREEN_X);
+      setDragX(normalizedDirection * SWIPE_START_X);
     } else {
       setDragX(0);
     }
@@ -149,7 +150,7 @@ export default function Members() {
                     transform,
                     opacity,
                     "--stack-index": stackPos,
-                    "--exit-x": `${exitDirection * OFFSCREEN_X}px`,
+                    "--exit-x": `${exitDirection * EXIT_TRAVEL_X}px`,
                   }}
                   onPointerDown={isTopCard ? onPointerDown : undefined}
                   onPointerMove={isTopCard ? onPointerMove : undefined}
