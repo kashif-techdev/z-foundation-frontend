@@ -5,28 +5,34 @@ import ImageWithFallback from "./ImageWithFallback";
 
 const MEMBERS = [
   {
-    name: "Kashif Ahmed",
+    name: "Imran Ullah",
     role: "Founder & Coordinator",
-    image: "/images/member-kashif.jpg",
-    designation: "Community Leadership",
+    image: "/images/member-imranullah.jpeg",
+    designation: "Lecturer at University of Technology Noshera",
   },
   {
-    name: "Ayesha Noor",
-    role: "Health Program Lead",
-    image: "/images/member-ayesha.jpg",
-    designation: "Healthcare Support",
+    name: "Atta Ul Aman",
+    role: "Member",
+    image: "/images/member-Atta.jpeg",
+    designation: "Geologist at MUC Engineering and Consulting Dubai",
   },
   {
-    name: "Hamza Ali",
-    role: "Education Facilitator",
-    image: "/images/member-hamza.jpg",
-    designation: "Education Access",
+    name: "DR. IRSHAD ULLAH ",
+    role: "Member",
+    image: "/images/member-irshad.jpeg",
+    designation: "Assistant Professor at University of Technology, Nowshera ",
   },
   {
-    name: "Sana Tariq",
+    name: "DR. MUHAMMAD ALI SIKANDAR ",
     role: "Relief Operations Manager",
-    image: "/images/member-sana.jpg",
-    designation: "Relief Operations",
+    image: "/images/member-sikandar.jpeg",
+    designation: "Professor at CECOS University Peshawar",
+  },
+  {
+    name: "Muhammd kashif",
+    role: "Member",
+    image: "/images/member-kashif.jpg",
+    designation: "Air University Islamabad",
   },
 ];
 
@@ -106,7 +112,7 @@ export default function Members() {
           Our Members
         </h2>
         <p className="members-subtitle">
-          Meet our core team behind Z-Foundation. Swipe cards on mobile or click the top card on desktop to browse.
+          Meet our core team behind Z-Foundation
         </p>
 
         <div className="members-stack-wrap">
