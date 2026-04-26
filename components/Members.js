@@ -39,6 +39,12 @@ const MEMBERS = [
 const SWIPE_THRESHOLD = 95;
 const OFFSCREEN_X = 420;
 const VISIBLE_STACK = 4;
+const FAN_TRANSFORMS = [
+  { x: 0, y: 0, scale: 1, rotate: 0 },
+  { x: -62, y: 26, scale: 0.94, rotate: -16 },
+  { x: 58, y: 40, scale: 0.9, rotate: 14 },
+  { x: -18, y: 58, scale: 0.86, rotate: -8 },
+];
 
 export default function Members() {
   const [order, setOrder] = useState(MEMBERS.map((_, i) => i));
@@ -48,7 +54,6 @@ export default function Members() {
   const [exitDirection, setExitDirection] = useState(1);
   const [isResetting, setIsResetting] = useState(false);
 
-  const topIndex = order[0];
   const canInteract = !isAnimatingOut && !isResetting && order.length > 0;
 
   const visibleOrder = useMemo(() => order.slice(0, VISIBLE_STACK), [order]);
@@ -111,8 +116,9 @@ export default function Members() {
         <h2 id="members-title" className="title">
           Our Members
         </h2>
+        <p className="members-eyebrow">For You</p>
         <p className="members-subtitle">
-          Meet our core team behind Z-Foundation
+          Meet our core team behind Z-Foundation.
         </p>
 
         <div className="members-stack-wrap">
@@ -120,15 +126,13 @@ export default function Members() {
             {visibleOrder.map((memberIndex, stackPos) => {
               const member = MEMBERS[memberIndex];
               const isTopCard = stackPos === 0;
-              const translateY = stackPos * 18;
-              const scale = 1 - stackPos * 0.045;
-              const rotate = stackPos % 2 === 0 ? stackPos * -2 : stackPos * 2;
+              const stackShape = FAN_TRANSFORMS[stackPos] || FAN_TRANSFORMS[FAN_TRANSFORMS.length - 1];
 
-              const topTransform = `translateX(${dragX}px) translateY(${translateY}px) rotate(${dragX * 0.05}deg)`;
-              const stackTransform = `translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`;
+              const topTransform = `translateX(${dragX}px) rotate(${dragX * 0.06}deg)`;
+              const stackTransform = `translateX(${stackShape.x}px) translateY(${stackShape.y}px) scale(${stackShape.scale}) rotate(${stackShape.rotate}deg)`;
 
               const transform = isTopCard ? topTransform : stackTransform;
-              const opacity = isTopCard ? 1 : 1 - stackPos * 0.1;
+              const opacity = isTopCard ? 1 : 0.82 - stackPos * 0.11;
 
               return (
                 <article
