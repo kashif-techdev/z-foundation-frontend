@@ -1130,34 +1130,6 @@ footer span a:hover {
     letter-spacing: -0.5px;
   }
 
-  .navbar .menu .menu-header .menu-close-btn {
-    background: rgba(255, 255, 255, 0.25);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    color: #1a1a1a;
-    font-size: 18px;
-    padding: 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .navbar .menu .menu-header .menu-close-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: rotate(90deg) scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .navbar .menu .menu-header .menu-close-btn:active {
-    transform: rotate(90deg) scale(0.95);
-  }
-
   .navbar .menu.active {
     right: 0;
   }

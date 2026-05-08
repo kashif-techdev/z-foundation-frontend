@@ -118,14 +118,6 @@ export default function Navbar() {
                 <span className="menu-logo">Z</span>
                 <span className="menu-logo-text">Foundation</span>
               </Link>
-              <button
-                type="button"
-                className="menu-close-btn"
-                aria-label="Close menu"
-                onClick={() => setMenuOpen(false)}
-              >
-                <i className="fas fa-times" />
-              </button>
             </li>
             {NAV_LINKS.map(({ href, label }) => {
               const sectionId = href.replace("#", "");
