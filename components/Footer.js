@@ -4,11 +4,7 @@ export default function Footer() {
   return (
     <footer>
       <span>
-        Developer:{" "}
-        <Link href="https://kashiftechdev.com" target="_blank" rel="noopener noreferrer">
-          Kashif
-        </Link>{" "}
-        | <span className="far fa-copyright" /> 2025 All rights reserved.
+        | <span className="far fa-copyright" /> 2026 All rights reserved to Z-Founation . 
       </span>
     </footer>
   );

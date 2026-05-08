@@ -133,6 +133,15 @@ export default function Navbar() {
                 </li>
               );
             })}
+            <li>
+              <Link
+                href="/login"
+                className="nav-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                Login
+              </Link>
+            </li>
           </ul>
           <button
             type="button"

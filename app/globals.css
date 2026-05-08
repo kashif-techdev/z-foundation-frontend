@@ -279,6 +279,152 @@ section .title::after {
   }
 }
 
+/* Auth pages */
+.auth-page {
+  min-height: 100vh;
+  padding: 130px 20px 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(160deg, #eef4ff 0%, #f7faff 55%, #edf2ff 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  border: 1px solid #dbe4f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.09);
+}
+
+.auth-card h1 {
+  font-size: 32px;
+  color: #0f172a;
+  margin-bottom: 6px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.auth-description {
+  color: #475569;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: grid;
+  gap: 14px;
+}
+
+.auth-field {
+  display: grid;
+  gap: 6px;
+}
+
+.auth-field span {
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.auth-field input {
+  width: 100%;
+  height: 46px;
+  border: 1px solid #cfd8e6;
+  border-radius: 10px;
+  padding: 0 14px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
+.auth-field input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+.auth-action-btn {
+  margin-top: 4px;
+  width: 100%;
+  height: 46px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-switch-text {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #475569;
+}
+
+.auth-switch-link {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.auth-switch-link:hover {
+  text-decoration: underline;
+}
+
+.auth-notice-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.45);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.auth-notice-card {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #dbe4f0;
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.2);
+  padding: 24px 22px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-notice-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #0f172a;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.auth-notice-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 20px;
+}
+
+.auth-notice-card button {
+  min-width: 130px;
+  height: 42px;
+  border: none;
+  border-radius: 999px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 /* Scroll up button */
 .scroll-up-btn {
   position: fixed;
@@ -1473,6 +1619,19 @@ footer span a:hover {
 @media (max-width: 640px) {
   .max-width {
     padding: 0 20px;
+  }
+
+  .auth-page {
+    padding: 110px 14px 28px;
+  }
+
+  .auth-card {
+    padding: 22px 16px;
+    border-radius: 14px;
+  }
+
+  .auth-card h1 {
+    font-size: 28px;
   }
 
   .members-subtitle {
