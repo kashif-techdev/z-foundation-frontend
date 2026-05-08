@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import ImageWithFallback from "./ImageWithFallback";
 
 const MEMBERS = [
@@ -36,92 +36,46 @@ const MEMBERS = [
   },
 ];
 
-const SWIPE_THRESHOLD = 95;
-const SWIPE_START_X = 420;
-const EXIT_TRAVEL_X = 680;
-const TOUCH_DRAG_COMMIT_X = 10;
-const VISIBLE_STACK = 4;
-const EXIT_ANIMATION_MS = 820;
-const RESET_ANIMATION_MS = 700;
-const FAN_TRANSFORMS = [
-  { x: 0, y: 0, scale: 1, rotate: 0 },
-  { x: -62, y: 26, scale: 0.94, rotate: -16 },
-  { x: 58, y: 40, scale: 0.9, rotate: 14 },
-  { x: -18, y: 58, scale: 0.86, rotate: -8 },
-];
+const AUTO_SLIDE_INTERVAL = 4000;
+
+function getVisibleCount() {
+  if (typeof window === "undefined") return 3;
+  if (window.innerWidth <= 480) return 1;
+  if (window.innerWidth <= 768) return 2;
+  return 3;
+}
 
 export default function Members() {
-  const [order, setOrder] = useState(MEMBERS.map((_, i) => i));
-  const [dragX, setDragX] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
-  const [exitDirection, setExitDirection] = useState(1);
-  const [isResetting, setIsResetting] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const canInteract = !isAnimatingOut && !isResetting && order.length > 0;
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      setVisibleCount(getVisibleCount());
+    };
 
-  const visibleOrder = useMemo(() => order.slice(0, VISIBLE_STACK), [order]);
+    updateVisibleCount();
+    window.addEventListener("resize", updateVisibleCount);
+    return () => window.removeEventListener("resize", updateVisibleCount);
+  }, []);
 
-  const removeTopCard = (direction = 1, preserveDragPosition = true) => {
-    if (!canInteract) return;
-    const normalizedDirection = direction >= 0 ? 1 : -1;
-    setIsAnimatingOut(true);
-    setExitDirection(normalizedDirection);
-    const startX = preserveDragPosition ? dragX : 0;
-    setDragX(startX);
+  const maxIndex = Math.max(0, MEMBERS.length - visibleCount);
 
-    window.requestAnimationFrame(() => {
-      setDragX(normalizedDirection * EXIT_TRAVEL_X);
-    });
-
-    window.setTimeout(() => {
-      setOrder((prev) => prev.slice(1));
-      setDragX(0);
-      setIsAnimatingOut(false);
-    }, EXIT_ANIMATION_MS);
-  };
-
-  const onPointerDown = (e) => {
-    if (!canInteract) return;
-    if (e.pointerType === "mouse" && e.button !== 0) return;
-
-    setIsDragging(true);
-    setDragX(0);
-    e.currentTarget.setPointerCapture(e.pointerId);
-  };
-
-  const onPointerMove = (e) => {
-    if (!isDragging || !canInteract) return;
-    setDragX((prev) => prev + e.movementX);
-  };
-
-  const onPointerUp = (e) => {
-    if (!isDragging) return;
-    setIsDragging(false);
-
-    const isTouch = e?.pointerType === "touch";
-    const shouldDismissByTouch = isTouch && Math.abs(dragX) > TOUCH_DRAG_COMMIT_X;
-    const shouldDismissByThreshold = Math.abs(dragX) > SWIPE_THRESHOLD;
-
-    if (shouldDismissByTouch || shouldDismissByThreshold) {
-      removeTopCard(dragX > 0 ? 1 : -1);
-      return;
+  const goNext = useCallback(() => {
+    if (!isPaused) {
+      setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     }
+  }, [maxIndex, isPaused]);
 
-    setDragX(0);
-  };
+  useEffect(() => {
+    const timer = setInterval(goNext, AUTO_SLIDE_INTERVAL);
+    return () => clearInterval(timer);
+  }, [goNext]);
 
-  const handleTopCardClick = () => {
-    if (!canInteract || isDragging) return;
-    removeTopCard(1, false);
-  };
-
-  const resetStack = () => {
-    setIsResetting(true);
-    setOrder(MEMBERS.map((_, i) => i));
-    setDragX(0);
-    window.setTimeout(() => setIsResetting(false), RESET_ANIMATION_MS);
-  };
+  const currentIndex = Math.min(index, maxIndex);
+  const trackWidthPercent = (MEMBERS.length / visibleCount) * 100;
+  const offsetPercent = -currentIndex * (100 / MEMBERS.length);
 
   return (
     <section className="members" id="teams" aria-labelledby="members-title">
@@ -133,62 +87,58 @@ export default function Members() {
           Meet our core team behind Z-Foundation.
         </p>
 
-        <div className="members-stack-wrap">
-          <div className="members-stack" role="list" aria-label="Member directory stack">
-            {visibleOrder.map((memberIndex, stackPos) => {
-              const member = MEMBERS[memberIndex];
-              const isTopCard = stackPos === 0;
-              const stackShape = FAN_TRANSFORMS[stackPos] || FAN_TRANSFORMS[FAN_TRANSFORMS.length - 1];
-
-              const topTransform = `translateX(${dragX}px) rotate(${dragX * 0.06}deg)`;
-              const stackTransform = `translateX(${stackShape.x}px) translateY(${stackShape.y}px) scale(${stackShape.scale}) rotate(${stackShape.rotate}deg)`;
-
-              const transform = isTopCard ? topTransform : stackTransform;
-              const opacity = isTopCard ? 1 : 0.82 - stackPos * 0.11;
-
-              return (
+        <div
+          className="members-carousel"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="members-wrapper">
+            <div
+              className="members-track"
+              role="list"
+              aria-label="Member directory"
+              style={{
+                transform: `translateX(${offsetPercent}%)`,
+                width: `${trackWidthPercent}%`,
+              }}
+            >
+              {MEMBERS.map((member) => (
                 <article
-                  key={`${member.name}-${memberIndex}`}
+                  key={member.name}
                   role="listitem"
-                  className={`member-stack-card ${isTopCard ? "is-top" : ""} ${isTopCard && isDragging ? "is-dragging" : ""} ${isResetting ? "is-resetting" : ""}`}
-                  style={{
-                    zIndex: VISIBLE_STACK - stackPos,
-                    transform,
-                    opacity,
-                    "--stack-index": stackPos,
-                  }}
-                  onPointerDown={isTopCard ? onPointerDown : undefined}
-                  onPointerMove={isTopCard ? onPointerMove : undefined}
-                  onPointerUp={isTopCard ? onPointerUp : undefined}
-                  onPointerCancel={isTopCard ? onPointerUp : undefined}
-                  onClick={isTopCard ? handleTopCardClick : undefined}
+                  className="member-card"
+                  style={{ flex: `0 0 ${100 / MEMBERS.length}%` }}
                 >
-                  <div className="member-photo-frame">
+                  <div className="member-photo-wrap">
                     <ImageWithFallback
                       src={member.image}
                       alt={`${member.name} profile`}
-                      width={320}
-                      height={210}
+                      width={280}
+                      height={240}
                       className="member-photo"
-                      draggable={false}
                     />
                   </div>
                   <div className="member-content">
                     <h3 className="member-name">{member.name}</h3>
                     <p className="member-role">{member.role}</p>
-                    <span className="member-designation">{member.designation}</span>
+                    <p className="member-designation">{member.designation}</p>
                   </div>
                 </article>
-              );
-            })}
+              ))}
+            </div>
           </div>
 
-          {order.length === 0 && (
-            <div className="members-reset">
-              <p className="members-reset-text">All member cards viewed.</p>
-              <button type="button" className="members-reset-btn" onClick={resetStack}>
-                Reset Stack
-              </button>
+          {maxIndex > 0 && (
+            <div className="members-dots">
+              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className={`members-dot ${i === currentIndex ? "active" : ""}`}
+                  aria-label={`Go to member slide ${i + 1} of ${maxIndex + 1}`}
+                  onClick={() => setIndex(i)}
+                />
+              ))}
             </div>
           )}
         </div>
