@@ -103,14 +103,18 @@ export default function Contact() {
               </p>
               <div className="contact-info-list">
                 <div className="contact-row">
-                  <i className="fas fa-user contact-icon" aria-hidden />
+                  <span className="contact-icon-box" aria-hidden>
+                    <i className="fas fa-user contact-icon" />
+                  </span>
                   <div className="contact-info">
                     <div className="contact-label">NGO Name</div>
                     <div className="contact-value">Z-Foundation</div>
                   </div>
                 </div>
                 <div className="contact-row">
-                  <i className="fas fa-map-marker-alt contact-icon" aria-hidden />
+                  <span className="contact-icon-box" aria-hidden>
+                    <i className="fas fa-map-marker-alt contact-icon" />
+                  </span>
                   <div className="contact-info">
                     <div className="contact-label">Address</div>
                     <div className="contact-value">
@@ -121,7 +125,9 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="contact-row">
-                  <i className="fas fa-phone contact-icon" aria-hidden />
+                  <span className="contact-icon-box" aria-hidden>
+                    <i className="fas fa-phone contact-icon" />
+                  </span>
                   <div className="contact-info">
                     <div className="contact-label">Mobile</div>
                     <a className="contact-value contact-link" href="tel:03330202415">
@@ -130,7 +136,9 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="contact-row">
-                  <i className="fab fa-whatsapp contact-icon contact-icon-whatsapp" aria-hidden />
+                  <span className="contact-icon-box contact-icon-box-whatsapp" aria-hidden>
+                    <i className="fab fa-whatsapp contact-icon contact-icon-whatsapp" />
+                  </span>
                   <div className="contact-info">
                     <div className="contact-label">WhatsApp</div>
                     <a
@@ -144,7 +152,9 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="contact-row">
-                  <i className="fas fa-envelope contact-icon" aria-hidden />
+                  <span className="contact-icon-box" aria-hidden>
+                    <i className="fas fa-envelope contact-icon" />
+                  </span>
                   <div className="contact-info">
                     <div className="contact-label">Email</div>
                     <a
