@@ -91,11 +91,16 @@ export default function Contact() {
     <>
       <section className="contact" id="contact">
         <div className="max-width">
-          <h2 className="title">Contact us</h2>
+          <h2 className="title">Contact Us</h2>
+          <p className="contact-subtitle">
+            Reach out for support, partnership, or volunteer opportunities.
+          </p>
           <div className="contact-content">
-            <div className="column left">
-              <div className="text">Volunteer us</div>
-              <p className="contact-intro">Get in touch or volunteer with us.</p>
+            <div className="column left contact-panel">
+              <div className="text">Let&apos;s Connect</div>
+              <p className="contact-intro">
+                We would love to hear from you. Connect with us directly or send a message using the form.
+              </p>
               <div className="contact-info-list">
                 <div className="contact-row">
                   <i className="fas fa-user contact-icon" aria-hidden />
@@ -152,11 +157,11 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            <div className="column right">
-              <div className="text">Message me</div>
-              <form onSubmit={handleSubmit} noValidate>
-                <div className="fields">
-                  <div className="field name">
+            <div className="column right contact-panel">
+              <div className="text">Send a Message</div>
+              <form onSubmit={handleSubmit} noValidate className="contact-form">
+                <div className="fields contact-grid">
+                  <div className="field name contact-field">
                     <input
                       type="text"
                       name="name"
@@ -174,7 +179,7 @@ export default function Contact() {
                       </span>
                     )}
                   </div>
-                  <div className="field email">
+                  <div className="field email contact-field">
                     <input
                       type="email"
                       name="email"
@@ -193,7 +198,7 @@ export default function Contact() {
                     )}
                   </div>
                 </div>
-                <div className="field">
+                <div className="field contact-field">
                   <input
                     type="text"
                     name="subject"
@@ -211,7 +216,7 @@ export default function Contact() {
                     </span>
                   )}
                 </div>
-                <div className="field textarea">
+                <div className="field textarea contact-field contact-message">
                   <textarea
                     name="message"
                     cols={30}
@@ -230,23 +235,11 @@ export default function Contact() {
                     </span>
                   )}
                 </div>
-                <div className="button">
+                <div className="button contact-submit-wrap">
                   <button type="submit" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <>
-                        <span
-                          className="spinner"
-                          style={{
-                            display: "inline-block",
-                            width: "14px",
-                            height: "14px",
-                            border: "2px solid #fff",
-                            borderTopColor: "transparent",
-                            borderRadius: "50%",
-                            marginRight: "8px",
-                            animation: "spin 0.8s linear infinite",
-                          }}
-                        />
+                        <span className="spinner" />
                         Sending...
                       </>
                     ) : (
@@ -266,24 +259,6 @@ export default function Contact() {
           onClose={() => setToast(null)}
         />
       )}
-      <style jsx>{`
-        @keyframes spin {
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        .error-message {
-          display: block;
-          color: #f44336;
-          font-size: 12px;
-          margin-top: 4px;
-          font-family: 'Poppins', sans-serif;
-        }
-        .field input.error,
-        .field textarea.error {
-          border-color: #f44336;
-        }
-      `}</style>
     </>
   );
 }
