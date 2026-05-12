@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
+import TopInfoBar from "./TopInfoBar";
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -23,7 +24,8 @@ export default function Navbar() {
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
-      const offsetTop = element.offsetTop - 80; // Account for navbar height
+      // Account for top info bar + navbar (see --top-info-bar-height in globals.css)
+      const offsetTop = element.offsetTop - 130;
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth",
@@ -40,7 +42,7 @@ export default function Navbar() {
       
       // Update active section based on scroll position
       const sections = NAV_LINKS.map((link) => link.href.replace("#", ""));
-      const scrollPosition = window.scrollY + 150;
+      const scrollPosition = window.scrollY + 198;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
@@ -94,6 +96,7 @@ export default function Navbar() {
 
   return (
     <>
+      <TopInfoBar />
       <nav className={`navbar ${sticky ? "sticky" : ""} ${menuOpen ? "active-menu" : ""}`}>
         <div className="max-width">
           <div className="logo">
