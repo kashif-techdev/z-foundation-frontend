@@ -1,47 +1,54 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
 import TopInfoBar from "./TopInfoBar";
 
-const NAV_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#teams", label: "Members" },
-  { href: "#contact", label: "Contact" },
+const SECTION_NAV = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "services", label: "Services" },
+  { id: "teams", label: "Members" },
+  { id: "contact", label: "Contact" },
 ];
 
+const ROUTE_NAV = [{ href: "/blog", label: "Blog" }];
+
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [sticky, setSticky] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // Handle smooth scroll and active section tracking
   const handleNavClick = useCallback((e, href) => {
     e.preventDefault();
     setMenuOpen(false);
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
-      // Account for top info bar + navbar (see --top-info-bar-height in globals.css)
       const offsetTop = element.offsetTop - 130;
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth",
       });
-      // Update active section after scroll
       setTimeout(() => setActiveSection(targetId), 100);
     }
   }, []);
 
-  // Track scroll position for sticky navbar
+  useEffect(() => {
+    if (!isHome) {
+      setActiveSection("");
+    }
+  }, [isHome]);
+
   useEffect(() => {
     const onScroll = () => {
       setSticky(window.scrollY > 20);
-      
-      // Update active section based on scroll position
-      const sections = NAV_LINKS.map((link) => link.href.replace("#", ""));
+      if (!isHome) return;
+
+      const sections = SECTION_NAV.map((link) => link.id);
       const scrollPosition = window.scrollY + 198;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -54,11 +61,10 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", onScroll);
-    onScroll(); // Initial check
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
-  // Close menu on ESC key
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape" && menuOpen) {
@@ -69,7 +75,6 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [menuOpen]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
@@ -81,7 +86,6 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuOpen && !e.target.closest(".navbar")) {
@@ -94,54 +98,67 @@ export default function Navbar() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [menuOpen]);
 
+  const sectionHref = (id) => (isHome ? `#${id}` : `/#${id}`);
+
+  const onLogoClick = (e) => {
+    if (isHome) {
+      e.preventDefault();
+      handleNavClick(e, "#home");
+    } else {
+      setMenuOpen(false);
+    }
+  };
+
+  const onSectionClick = (e, id) => {
+    if (isHome) {
+      e.preventDefault();
+      handleNavClick(e, `#${id}`);
+    } else {
+      setMenuOpen(false);
+    }
+  };
+
   return (
     <>
       <TopInfoBar />
       <nav className={`navbar ${sticky ? "sticky" : ""} ${menuOpen ? "active-menu" : ""}`}>
         <div className="max-width">
           <div className="logo">
-            <Link
-              href="#home"
-              onClick={(e) => handleNavClick(e, "#home")}
-              aria-label="Z-Foundation Home"
-            >
+            <Link href="/" onClick={onLogoClick} aria-label="Z-Foundation Home">
               <span>Z</span>-Foundation
             </Link>
           </div>
           <ul className={`menu ${menuOpen ? "active" : ""}`}>
             <li className="menu-header">
-              <Link
-                href="#home"
-                onClick={(e) => {
-                  handleNavClick(e, "#home");
-                  setMenuOpen(false);
-                }}
-                className="menu-logo-link"
-              >
+              <Link href="/" onClick={onLogoClick} className="menu-logo-link">
                 <span className="menu-logo">Z</span>
                 <span className="menu-logo-text">Foundation</span>
               </Link>
             </li>
-            {NAV_LINKS.map(({ href, label }) => {
-              const sectionId = href.replace("#", "");
-              return (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className={`nav-link ${activeSection === sectionId ? "active" : ""}`}
-                    onClick={(e) => handleNavClick(e, href)}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              );
-            })}
+            {SECTION_NAV.map(({ id, label }) => (
+              <li key={id}>
+                <Link
+                  href={sectionHref(id)}
+                  className={`nav-link ${isHome && activeSection === id ? "active" : ""}`}
+                  onClick={(e) => onSectionClick(e, id)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+            {ROUTE_NAV.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className={`nav-link ${pathname.startsWith(href) ? "active" : ""}`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
             <li>
-              <Link
-                href="/login"
-                className="nav-link"
-                onClick={() => setMenuOpen(false)}
-              >
+              <Link href="/login" className="nav-link" onClick={() => setMenuOpen(false)}>
                 Login
               </Link>
             </li>
