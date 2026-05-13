@@ -96,9 +96,14 @@ export default function BlogArticlePage({ params }) {
           <Link href="/blog" className="blog-back-link">
             <i className="fas fa-arrow-left" aria-hidden="true" /> Back to all articles
           </Link>
-          <Link href="/#contact" className="blog-back-link blog-back-link--primary">
-            Get involved
-          </Link>
+          <div className="blog-article__footer-actions">
+            <Link href="/volunteer" className="blog-back-link blog-back-link--primary">
+              Volunteer
+            </Link>
+            <Link href="/#contact" className="blog-back-link">
+              Contact
+            </Link>
+          </div>
         </div>
       </main>
       <Footer />

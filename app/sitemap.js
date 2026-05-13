@@ -11,6 +11,12 @@ export default function sitemap() {
       priority: 1,
     },
     {
+      url: `${baseUrl}/volunteer`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: "weekly",

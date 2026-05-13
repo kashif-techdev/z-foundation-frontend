@@ -1,15 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 
 const WHATSAPP_BAR_MESSAGE =
   "Hello! I'd like to get in touch with Z-Foundation via WhatsApp.";
 
 export default function TopInfoBar() {
-  const pathname = usePathname();
-  const contactHref = pathname === "/" ? "#contact" : "/#contact";
   const whatsappHref = `${WHATSAPP_URL}?text=${encodeURIComponent(WHATSAPP_BAR_MESSAGE)}`;
 
   return (
@@ -28,11 +25,7 @@ export default function TopInfoBar() {
             <span className="top-info-bar__label-short">WhatsApp</span>
           </span>
         </a>
-        <Link
-          href={contactHref}
-          className="top-info-bar__volunteer"
-          aria-label="Become a volunteer"
-        >
+        <Link href="/volunteer" className="top-info-bar__volunteer" aria-label="Become a volunteer">
           <i className="fas fa-handshake top-info-bar__icon" aria-hidden="true" />
           <span className="top-info-bar__volunteer-label">
             <span className="top-info-bar__label-full">Become a Volunteer</span>

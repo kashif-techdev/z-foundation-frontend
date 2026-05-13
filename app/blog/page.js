@@ -110,9 +110,14 @@ export default function BlogPage() {
                 </h2>
                 <p className="blog-cta__text">Donate, volunteer, or ask a question—we read every message.</p>
               </div>
-              <Link href="/#contact" className="blog-cta__btn">
-                Contact us
-              </Link>
+              <div className="blog-cta__actions">
+                <Link href="/volunteer" className="blog-cta__btn blog-cta__btn--ghost">
+                  Volunteer
+                </Link>
+                <Link href="/#contact" className="blog-cta__btn">
+                  Contact us
+                </Link>
+              </div>
             </div>
           </aside>
         </div>

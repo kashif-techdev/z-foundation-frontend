@@ -13,7 +13,10 @@ const SECTION_NAV = [
   { id: "contact", label: "Contact" },
 ];
 
-const ROUTE_NAV = [{ href: "/blog", label: "Blog" }];
+const ROUTE_NAV = [
+  { href: "/volunteer", label: "Volunteer" },
+  { href: "/blog", label: "Blog" },
+];
 
 export default function Navbar() {
   const pathname = usePathname();
