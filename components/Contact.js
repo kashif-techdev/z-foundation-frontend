@@ -1,89 +1,52 @@
 "use client";
 
-import { useState } from "react";
-import Toast from "./Toast";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
+import { contactFormSchema } from "@/lib/validation/schemas";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      subject: "",
+      message: "",
+      company: "",
+    },
   });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [toast, setToast] = useState(null);
 
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    } else if (formData.name.trim().length < 2) {
-      newErrors.name = "Name must be at least 2 characters";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
-
-    if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required";
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) {
-      setToast({
-        message: "Please fix the errors in the form",
-        type: "error",
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-
+  const onSubmit = async (values) => {
     try {
-      // In production, replace with your API endpoint or email service
-      // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
-      
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data = await res.json().catch(() => ({}));
 
-      setToast({
-        message: "Thank you! Your message has been sent successfully.",
-        type: "success",
-      });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (error) {
-      setToast({
-        message: "Failed to send message. Please try again or contact us directly.",
-        type: "error",
-      });
-    } finally {
-      setIsSubmitting(false);
+      if (!res.ok) {
+        if (data.fieldErrors && typeof data.fieldErrors === "object") {
+          Object.entries(data.fieldErrors).forEach(([key, msgs]) => {
+            const msg = Array.isArray(msgs) ? msgs[0] : msgs;
+            if (msg) setError(key, { type: "server", message: msg });
+          });
+        }
+        toast.error(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      toast.success("Thank you! Your message has been sent.");
+      reset();
+    } catch {
+      toast.error("Network error. Please check your connection and try again.");
     }
   };
 
@@ -157,11 +120,41 @@ export default function Contact() {
                   </span>
                   <div className="contact-info">
                     <div className="contact-label">Email</div>
-                    <a
-                      className="contact-value contact-link"
-                      href="mailto:Kashif.techdev@gmail.com"
-                    >
-                      Kashif.techdev@gmail.com
+                    <a className="contact-value contact-link" href="mailto:info@zifoundation.com">
+                      info@zifoundation.com
+                    </a>
+                  </div>
+                </div>
+                <div className="contact-row">
+                  <span className="contact-icon-box" aria-hidden>
+                    <i className="fas fa-hand-holding-heart contact-icon" />
+                  </span>
+                  <div className="contact-info">
+                    <div className="contact-label">Volunteer</div>
+                    <a className="contact-value contact-link" href="mailto:volunteer@zifoundation.com">
+                      volunteer@zifoundation.com
+                    </a>
+                  </div>
+                </div>
+                <div className="contact-row">
+                  <span className="contact-icon-box" aria-hidden>
+                    <i className="fas fa-gift contact-icon" />
+                  </span>
+                  <div className="contact-info">
+                    <div className="contact-label">Donations</div>
+                    <a className="contact-value contact-link" href="mailto:donate@zifoundation.com">
+                      donate@zifoundation.com
+                    </a>
+                  </div>
+                </div>
+                <div className="contact-row">
+                  <span className="contact-icon-box" aria-hidden>
+                    <i className="fas fa-life-ring contact-icon" />
+                  </span>
+                  <div className="contact-info">
+                    <div className="contact-label">Support</div>
+                    <a className="contact-value contact-link" href="mailto:support@zifoundation.com">
+                      support@zifoundation.com
                     </a>
                   </div>
                 </div>
@@ -169,79 +162,84 @@ export default function Contact() {
             </div>
             <div className="column right contact-panel">
               <div className="text">Send a Message</div>
-              <form onSubmit={handleSubmit} noValidate className="contact-form">
+              <form onSubmit={handleSubmit(onSubmit)} noValidate className="contact-form pf-form">
+                <input type="text" className="pf-honeypot" tabIndex={-1} autoComplete="off" aria-hidden="true" {...register("company")} />
                 <div className="fields contact-grid">
-                  <div className="field name contact-field">
+                  <div className="field name contact-field pf-field">
+                    <label htmlFor="contact-fullName" className="pf-label">
+                      Full name
+                    </label>
                     <input
+                      id="contact-fullName"
                       type="text"
-                      name="name"
-                      placeholder="Name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={errors.name ? "error" : ""}
-                      aria-invalid={errors.name ? "true" : "false"}
-                      aria-describedby={errors.name ? "name-error" : undefined}
-                      required
+                      placeholder="Your full name"
+                      className={errors.fullName ? "error" : ""}
+                      aria-invalid={errors.fullName ? "true" : "false"}
+                      aria-describedby={errors.fullName ? "contact-fullName-err" : undefined}
+                      {...register("fullName")}
                     />
-                    {errors.name && (
-                      <span id="name-error" className="error-message">
-                        {errors.name}
+                    {errors.fullName && (
+                      <span id="contact-fullName-err" className="error-message" role="alert">
+                        {errors.fullName.message}
                       </span>
                     )}
                   </div>
-                  <div className="field email contact-field">
+                  <div className="field email contact-field pf-field">
+                    <label htmlFor="contact-email" className="pf-label">
+                      Email
+                    </label>
                     <input
+                      id="contact-email"
                       type="email"
-                      name="email"
-                      placeholder="Email"
-                      value={formData.email}
-                      onChange={handleChange}
+                      placeholder="you@example.com"
                       className={errors.email ? "error" : ""}
                       aria-invalid={errors.email ? "true" : "false"}
-                      aria-describedby={errors.email ? "email-error" : undefined}
-                      required
+                      aria-describedby={errors.email ? "contact-email-err" : undefined}
+                      {...register("email")}
                     />
                     {errors.email && (
-                      <span id="email-error" className="error-message">
-                        {errors.email}
+                      <span id="contact-email-err" className="error-message" role="alert">
+                        {errors.email.message}
                       </span>
                     )}
                   </div>
                 </div>
-                <div className="field contact-field">
+                <div className="field contact-field pf-field">
+                  <label htmlFor="contact-subject" className="pf-label">
+                    Subject
+                  </label>
                   <input
+                    id="contact-subject"
                     type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    value={formData.subject}
-                    onChange={handleChange}
+                    placeholder="What is this about?"
                     className={errors.subject ? "error" : ""}
                     aria-invalid={errors.subject ? "true" : "false"}
-                    aria-describedby={errors.subject ? "subject-error" : undefined}
-                    required
+                    aria-describedby={errors.subject ? "contact-subject-err" : undefined}
+                    {...register("subject")}
                   />
                   {errors.subject && (
-                    <span id="subject-error" className="error-message">
-                      {errors.subject}
+                    <span id="contact-subject-err" className="error-message" role="alert">
+                      {errors.subject.message}
                     </span>
                   )}
                 </div>
-                <div className="field textarea contact-field contact-message">
+                <div className="field textarea contact-field contact-message pf-field">
+                  <label htmlFor="contact-message" className="pf-label">
+                    Message
+                  </label>
                   <textarea
-                    name="message"
+                    id="contact-message"
                     cols={30}
                     rows={10}
-                    placeholder="Message.."
-                    value={formData.message}
-                    onChange={handleChange}
+                    placeholder="Your message…"
                     className={errors.message ? "error" : ""}
                     aria-invalid={errors.message ? "true" : "false"}
-                    aria-describedby={errors.message ? "message-error" : undefined}
-                    required
+                    aria-describedby={errors.message ? "contact-message-err" : undefined}
+                    {...register("message")}
                   />
                   {errors.message && (
-                    <span id="message-error" className="error-message">
-                      {errors.message}
+                    <span id="contact-message-err" className="error-message" role="alert">
+                      {errors.message.message}
                     </span>
                   )}
                 </div>
@@ -250,7 +248,7 @@ export default function Contact() {
                     {isSubmitting ? (
                       <>
                         <span className="spinner" />
-                        Sending...
+                        Sending…
                       </>
                     ) : (
                       "Send message"
@@ -262,13 +260,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      {toast && (
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )}
     </>
   );
 }

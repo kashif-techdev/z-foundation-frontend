@@ -1,4 +1,5 @@
 import "./globals.css";
+import Providers from "@/components/Providers";
 
 export const metadata = {
   title: "Z-Foundation | Helping Communities in Need",
@@ -25,13 +26,13 @@ export const metadata = {
     telephone: false,
   },
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://z-foundation.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://zifoundation.com"
   ),
   openGraph: {
     title: "Z-Foundation | Helping Communities in Need",
     description:
       "A private non-profit organization helping flood-affected communities, providing healthcare, education, food, clothing, and shelter.",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://z-foundation.vercel.app",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://zifoundation.com",
     siteName: "Z-Foundation",
     locale: "en_US",
     type: "website",
@@ -85,7 +86,9 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

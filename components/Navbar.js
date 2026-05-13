@@ -14,7 +14,9 @@ const SECTION_NAV = [
 ];
 
 const ROUTE_NAV = [
+  { href: "/donate", label: "Donate" },
   { href: "/volunteer", label: "Volunteer" },
+  { href: "/support", label: "Support" },
   { href: "/blog", label: "Blog" },
 ];
 

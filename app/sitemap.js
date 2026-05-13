@@ -1,7 +1,7 @@
 import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://z-foundation.vercel.app";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://zifoundation.com";
 
   const entries = [
     {
@@ -9,6 +9,18 @@ export default function sitemap() {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
+    },
+    {
+      url: `${baseUrl}/donate`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/support`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.82,
     },
     {
       url: `${baseUrl}/volunteer`,

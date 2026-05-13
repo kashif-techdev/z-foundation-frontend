@@ -65,7 +65,8 @@ export default function BlogPage() {
                     Read article <i className="fas fa-arrow-right" aria-hidden="true" />
                   </span>
                 </div>
-                <div className="blog-featured-card__visual" aria-hidden="true">
+                <div className="blog-featured-card__visual blog-featured-card__visual--rich" aria-hidden="true">
+                  <span className="blog-featured-card__meta-pill">{featured.readTime}</span>
                   <i className="fas fa-book-open blog-featured-card__icon" />
                 </div>
               </Link>
@@ -86,13 +87,18 @@ export default function BlogPage() {
                   <li key={post.slug}>
                     <article>
                       <Link href={`/blog/${post.slug}`} className={`blog-card blog-card--${post.accent}`}>
-                        <span className="blog-pill blog-pill--muted">{post.category}</span>
+                        <div className="blog-card__thumb" aria-hidden="true">
+                          <span className="blog-card__thumb-pill">{post.category}</span>
+                          <span className="blog-card__thumb-time">{post.readTime}</span>
+                        </div>
+                        <div className="blog-card__body">
                         <h3 className="blog-card__title">{post.title}</h3>
                         <p className="blog-card__excerpt">{post.excerpt}</p>
                         <div className="blog-card__meta">
                           <time dateTime={post.date}>{formatDate(post.date)}</time>
                           <span className="blog-dot" aria-hidden="true" />
                           <span>{post.readTime}</span>
+                        </div>
                         </div>
                       </Link>
                     </article>
@@ -111,6 +117,9 @@ export default function BlogPage() {
                 <p className="blog-cta__text">Donate, volunteer, or ask a question—we read every message.</p>
               </div>
               <div className="blog-cta__actions">
+                <Link href="/donate" className="blog-cta__btn blog-cta__btn--ghost">
+                  Donate
+                </Link>
                 <Link href="/volunteer" className="blog-cta__btn blog-cta__btn--ghost">
                   Volunteer
                 </Link>

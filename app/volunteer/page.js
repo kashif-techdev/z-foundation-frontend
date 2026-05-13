@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import VolunteerApplicationForm from "@/components/forms/VolunteerApplicationForm";
 
 export const metadata = {
   title: "Volunteer | Z-Foundation",
@@ -174,6 +175,8 @@ export default function VolunteerPage() {
               ))}
             </ol>
           </section>
+
+          <VolunteerApplicationForm />
 
           <section className="volunteer-section" aria-labelledby="expectations">
             <h2 id="expectations" className="volunteer-section__title">
