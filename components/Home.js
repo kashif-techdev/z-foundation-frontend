@@ -19,9 +19,15 @@ export default function Home() {
           <div className="text-3">
             we provide <TypingText />
           </div>
-          <Link href="#contact" className="cta-link">
-            Donate us
-          </Link>
+          <div className="home-cta-row">
+            <Link href="#contact" className="cta-link cta-link--donate">
+              Donate us
+            </Link>
+            <Link href="/volunteer" className="cta-link cta-link--volunteer">
+              <i className="fas fa-hands-helping" aria-hidden="true" />
+              Volunteer
+            </Link>
+          </div>
           <div className="icons">
             <a
               href={FACEBOOK_URL}

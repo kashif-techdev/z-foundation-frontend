@@ -620,23 +620,66 @@ section .title::after {
   font-weight: 600;
 }
 
-.home .home-content .cta-link {
-  display: inline-block;
-  background: #b0c4de;
-  color: black;
-  font-size: 25px;
-  padding: 12px 36px;
+.home .home-content .home-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 14px;
   margin-top: 20px;
-  font-weight: 400;
-  border-radius: 6px;
-  border: 2px solid #b0c4de;
-  transition: all 0.3s ease;
 }
 
-.home .home-content .cta-link:hover {
+.home .home-content .cta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0;
+  font-size: 25px;
+  padding: 12px 36px;
+  font-weight: 400;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, font-weight 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home .home-content .cta-link--donate {
+  background: #b0c4de;
+  color: black;
+  border-color: #b0c4de;
+}
+
+.home .home-content .cta-link--donate:hover {
   color: black;
   font-weight: bold;
   background: transparent;
+  border-color: #b0c4de;
+}
+
+.home .home-content .cta-link--volunteer {
+  background: rgba(255, 255, 255, 0.35);
+  color: #0f172a;
+  border-color: rgba(15, 23, 42, 0.35);
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.home .home-content .cta-link--volunteer i {
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+
+.home .home-content .cta-link--volunteer:hover {
+  background: rgba(176, 196, 222, 0.55);
+  border-color: #5f86b9;
+  font-weight: 600;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+}
+
+.home .home-content .cta-link:focus-visible {
+  outline: 3px solid #5f86b9;
+  outline-offset: 3px;
 }
 
 /* Social icons */
@@ -1880,6 +1923,18 @@ footer span a:hover {
 }
 
 @media (max-width: 500px) {
+  .home .home-content .home-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .home .home-content .cta-link {
+    width: 100%;
+    max-width: 300px;
+    min-height: 48px;
+  }
+
   .home .home-content .text-2 {
     font-size: 50px;
   }
