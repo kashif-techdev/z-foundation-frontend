@@ -16,6 +16,23 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
+  margin: 0;
+}
+
+/* Sonner toast host is portaled to body; keep it out of document flow */
+section[aria-label="Notifications alt+T"],
+[data-sonner-toaster] {
+  position: fixed;
+  z-index: 10001;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  min-height: 0;
+  pointer-events: none;
+}
+
+[data-sonner-toaster] > * {
+  pointer-events: auto;
 }
 
 ::-webkit-scrollbar {
@@ -31,7 +48,8 @@ body {
   background: #555;
 }
 
-section {
+/* Page sections only — exclude Sonner toast host (body > section) and auth cards */
+main > section:not(.auth-card) {
   padding: 100px 0;
 }
 
@@ -1880,10 +1898,6 @@ footer a {
     width: 55px !important;
     height: 55px !important;
     font-size: 24px !important;
-  }
-
-  .site-footer {
-    padding-bottom: calc(88px + env(safe-area-inset-bottom));
   }
 
   .site-footer__links {

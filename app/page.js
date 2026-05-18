@@ -21,8 +21,8 @@ export default function Page() {
         <Services />
         <Members />
         <Contact />
-        <Footer />
       </main>
+      <Footer />
       <ScrollToTop />
       <WhatsAppButton />
     </ErrorBoundary>
