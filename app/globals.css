@@ -1396,20 +1396,81 @@ section .title::after {
 }
 
 /* Footer */
-footer {
-  background: #b0c4de;
-  padding: 15px 23px;
-  color: #111;
+.site-footer {
+  background: linear-gradient(180deg, #c5d4e8 0%, #b0c4de 100%);
+  padding: 28px 24px calc(28px + env(safe-area-inset-bottom));
+  color: #1a2a3a;
   text-align: center;
+  border-top: 1px solid rgba(95, 134, 185, 0.25);
 }
 
-footer span a {
-  color: black;
+.site-footer__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-footer__links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer__links a {
+  color: #1a2a3a;
   text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 4px 2px;
+  border-radius: 4px;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-footer span a:hover {
+.site-footer__links a:hover,
+.site-footer__links a:focus-visible {
+  color: #3d5d87;
   text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer__email {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.site-footer__email a {
+  color: #2c4a6e;
+  text-decoration: none;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.site-footer__email a:hover,
+.site-footer__email a:focus-visible {
+  color: #1e3a5f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer__copy {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #4a5568;
+  line-height: 1.5;
+  max-width: 360px;
+}
+
+/* Legacy selector for any remaining footer links */
+footer a {
+  color: inherit;
 }
 
 /* Chatbot */
@@ -1819,6 +1880,18 @@ footer span a:hover {
     width: 55px !important;
     height: 55px !important;
     font-size: 24px !important;
+  }
+
+  .site-footer {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+
+  .site-footer__links {
+    gap: 6px 16px;
+  }
+
+  .site-footer__links a {
+    font-size: 0.9rem;
   }
 }
 

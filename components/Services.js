@@ -17,26 +17,10 @@ const SERVICES = [
     image: "/images/education.jpg",
   },
   {
-    title: "Food",
-    description: "Distributing food supplies and meals to combat hunger.",
+    title: "Basic needs",
+    description:
+      "Food, clothing, shelter, and essential support for families facing hardship.",
     image: "/images/food.jpg",
-  },
-  {
-    title: "Clothes",
-    description:
-      "Providing clothing to those in need, ensuring dignity and warmth.",
-    image: "/images/clothes.jpg",
-  },
-  {
-    title: "Scholarships",
-    description:
-      "Offering financial aid and scholarships to support education.",
-    image: "/images/scholarship.jpg",
-  },
-  {
-    title: "Shelter",
-    description: "Providing safe housing and shelter for the homeless.",
-    image: "/images/shelter.jpg",
   },
 ];
 

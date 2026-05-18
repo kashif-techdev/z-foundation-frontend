@@ -38,7 +38,7 @@ function getChatbotResponse(userMessage) {
     lowerMessage.includes("give") ||
     lowerMessage.includes("money")
   ) {
-    return `Thank you for your interest in supporting Z-Foundation! 🙏\n\nYou can donate by:\n📧 **Email:** ${CONTACT_INFO.email}\n📞 **Mobile:** ${CONTACT_INFO.mobile}\n💬 **WhatsApp:** [Click to chat](https://wa.me/${CONTACT_INFO.whatsapp})\n\nYour support helps us provide:\n• Healthcare services\n• Education support\n• Food distribution\n• Clothing\n• Shelter\n• Scholarships\n\nEvery contribution makes a difference! 💙`;
+    return `Thank you for your interest in supporting Z-Foundation! 🙏\n\nYou can donate by:\n📧 **Email:** ${CONTACT_INFO.email}\n📞 **Mobile:** ${CONTACT_INFO.mobile}\n💬 **WhatsApp:** [Click to chat](https://wa.me/${CONTACT_INFO.whatsapp})\n\nYour support helps us provide:\n• Healthcare\n• Education\n• Basic needs (food, clothing, shelter)\n\nEvery contribution makes a difference! 💙`;
   }
 
   // Services queries
@@ -49,7 +49,7 @@ function getChatbotResponse(userMessage) {
     lowerMessage.includes("help with") ||
     lowerMessage.includes("provide")
   ) {
-    return `Z-Foundation provides the following services:\n\n🏥 **Health** - Medical aid and healthcare support\n📚 **Education** - Quality education and learning resources\n🍽️ **Food** - Food supplies and meals\n👕 **Clothes** - Clothing for those in need\n🎓 **Scholarships** - Financial aid for education\n🏠 **Shelter** - Safe housing for the homeless\n\nWe're currently active in Darbhanga, Bihar, and expanding to help more communities!`;
+    return `Z-Foundation provides the following services:\n\n🏥 **Health** - Medical aid and healthcare support\n📚 **Education** - Quality education and learning resources\n🤝 **Basic needs** - Food, clothing, shelter, and essential support\n\nWe're currently active in Darbhanga, Bihar, and expanding to help more communities!`;
   }
 
   // About queries
@@ -104,7 +104,7 @@ function getChatbotResponse(userMessage) {
   }
 
   // Default response - helpful and friendly
-  return `I understand you're asking about "${userMessage}".\n\nZ-Foundation helps communities with:\n• Healthcare\n• Education\n• Food distribution\n• Clothing\n• Shelter\n• Scholarships\n\nFor specific information:\n📞 **Contact:** ${CONTACT_INFO.mobile}\n📧 **Email:** ${CONTACT_INFO.email}\n\nOr ask me about:\n• Donations\n• Our services\n• Contact information\n• Volunteering\n• Our location`;
+  return `I understand you're asking about "${userMessage}".\n\nZ-Foundation helps communities with:\n• Healthcare\n• Education\n• Basic needs\n\nFor specific information:\n📞 **Contact:** ${CONTACT_INFO.mobile}\n📧 **Email:** ${CONTACT_INFO.email}\n\nOr ask me about:\n• Donations\n• Our services\n• Contact information\n• Volunteering\n• Our location`;
 }
 
 export default function Chatbot() {
