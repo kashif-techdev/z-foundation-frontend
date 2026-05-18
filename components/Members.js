@@ -6,31 +6,30 @@ import ImageWithFallback from "./ImageWithFallback";
 const MEMBERS = [
   {
     name: "Imran Ullah",
-    role: "Founder & Coordinator",
+    role: "Lecturer",
     image: "/images/member-imranullah.jpeg",
-    designation: "Lecturer at University of Technology Noshera",
+    designation: "University of Technology Noshera",
   },
   {
     name: "Atta Ul Aman",
-    role: "Member",
+    role: "Geologist",
     image: "/images/member-Atta.jpeg",
-    designation: "Geologist at MUC Engineering and Consulting Dubai",
+    designation: "MUC Engineering and Consulting Dubai",
   },
   {
     name: "DR. IRSHAD ULLAH ",
-    role: "Member",
-    image: "/images/member-irshad.jpeg",
-    designation: "Assistant Professor at University of Technology, Nowshera ",
+    role: "Assistant Professor ",
+    image: "/images/irshad.jpeg",
+    designation: "University of Technology, Nowshera ",
   },
   {
     name: "DR. MUHAMMAD ALI SIKANDAR ",
-    role: "Relief Operations Manager",
+    role: "Professor",
     image: "/images/member-sikandar.jpeg",
-    designation: "Professor at CECOS University Peshawar",
+    designation: "CECOS University Peshawar",
   },
   {
     name: "Muhammd kashif",
-    role: "Member",
     image: "/images/member-kashif.jpg",
     designation: "Air University Islamabad",
   },
@@ -81,11 +80,8 @@ export default function Members() {
     <section className="members" id="teams" aria-labelledby="members-title">
       <div className="max-width">
         <h2 id="members-title" className="title">
-          Our Members
+          Board Members
         </h2>
-        <p className="members-subtitle">
-          Meet our core team behind Z-Foundation.
-        </p>
 
         <div
           className="members-carousel"
