@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const WORDS = ["Food", "Health", "Education", "Cloths", "Shelter"];
+const WORDS = ["Health", "Education", "Basic needs"];
 
 export default function TypingText() {
   const [index, setIndex] = useState(0);
