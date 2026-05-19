@@ -65,21 +65,12 @@ export default function Contact() {
                 We would love to hear from you. Connect with us directly or send a message using the form.
               </p>
               <div className="contact-info-list">
-                <div className="contact-row">
-                  <span className="contact-icon-box" aria-hidden>
-                    <i className="fas fa-user contact-icon" />
-                  </span>
-                  <div className="contact-info">
-                    <div className="contact-label">NGO Name</div>
-                    <div className="contact-value">Z-Foundation</div>
-                  </div>
-                </div>
+              
                 <div className="contact-row">
                   <span className="contact-icon-box" aria-hidden>
                     <i className="fas fa-map-marker-alt contact-icon" />
                   </span>
                   <div className="contact-info">
-                    <div className="contact-label">Address</div>
                     <div className="contact-value">
                       Village Dallan, Tehsil Thall
                       <br />
@@ -98,22 +89,7 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-                <div className="contact-row">
-                  <span className="contact-icon-box contact-icon-box-whatsapp" aria-hidden>
-                    <i className="fab fa-whatsapp contact-icon contact-icon-whatsapp" />
-                  </span>
-                  <div className="contact-info">
-                    <div className="contact-label">WhatsApp</div>
-                    <a
-                      className="contact-value contact-link contact-link-whatsapp"
-                      href="https://wa.me/923330202415"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Chat with us on WhatsApp
-                    </a>
-                  </div>
-                </div>
+                
                 <div className="contact-row">
                   <span className="contact-icon-box" aria-hidden>
                     <i className="fas fa-envelope contact-icon" />
