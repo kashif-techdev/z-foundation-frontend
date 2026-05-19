@@ -1,103 +1,237 @@
 /**
- * Static blog content. Add posts here or move to a CMS later.
- * `body` is GitHub-flavored Markdown (headings, lists, emphasis).
+ * Static blog content. Mission-focused, transparent language—no unverified field claims.
+ * `body` is GitHub-flavored Markdown.
  */
 
 export const blogPosts = [
   {
-    slug: "community-health-camps-reach-villages",
-    title: "Community health camps reach remote villages",
+    slug: "why-z-foundation-was-created",
+    title: "Why Z-Foundation Was Created",
     excerpt:
-      "How mobile clinics and volunteer medics are extending primary care to families who previously had to travel for hours to see a doctor.",
-    date: "2026-04-18",
-    readTime: "6 min read",
-    category: "Health",
+      "Z-Foundation was started with a simple mission: support underserved families through healthcare, education, and community-driven initiatives with transparency and dignity.",
+    date: "2026-04-10",
+    readTime: "5 min read",
+    category: "Awareness",
+    categorySlug: "awareness",
     accent: "ocean",
+    featured: true,
     body: `
-## Why mobile camps matter
+## A clear starting point
 
-Many families we serve live far from the nearest government health centre. A fever in a child or high blood pressure in an older adult can go unchecked simply because the journey is too costly or too long.
+Z-Foundation began as a response to a practical need: many families face ongoing pressure from medical costs, limited access to learning resources, and day-to-day hardship without a reliable local support network.
 
-Our **community health camps** bring screening, basic medicines, and referrals closer to home. Each camp is planned with local leaders so we know where need is highest and how to follow up after we leave.
+We are not claiming to solve every problem at once. We are building a foundation that focuses on **healthcare support**, **education support**, and **responsible community outreach**—with honesty about what we can do today and what we are still learning.
 
-## What happens at a camp
+## What guides our work
 
-- Registration and vitals for every visitor
-- Consultations with volunteer doctors and nurses
-- Free common medicines where prescriptions apply
-- Referral slips for cases that need a hospital
+- **Dignity** — Support should respect privacy and circumstance.
+- **Transparency** — Donors and partners deserve clear communication about how giving is used.
+- **Community partnership** — Local context matters; we listen before we act.
+- **Long-term thinking** — Education and steady healthcare assistance can change outcomes over years, not only in a single moment.
 
-We also run short **health education** sessions on hygiene, nutrition, and when to seek urgent care.
+## How we use donations today
 
-## Looking ahead
+Until formal payment registration is complete, we accept **manual EasyPaisa transfers** and document support carefully. Funds are directed toward defined needs such as medical assistance, educational materials, and essential household support—always within our capacity and local guidelines.
 
-We are expanding the schedule for the monsoon season, when waterborne illness tends to rise. If you are a medical volunteer, your skills can make an immediate difference—see our contact page to get involved.
+## Staying grounded
+
+This blog exists to share our direction, explain our priorities, and invite thoughtful participation. If you have questions about our mission or how to contribute, we welcome a conversation through our contact page or donation inquiry form.
     `.trim(),
   },
   {
-    slug: "school-supplies-and-scholarships-update",
-    title: "School supplies, scholarships, and what changed this year",
+    slug: "helping-patients-through-community-support",
+    title: "Helping Patients Through Community Support",
     excerpt:
-      "A transparent look at how donations translated into textbooks, uniforms, and fee support for students in flood-affected districts.",
-    date: "2026-03-02",
+      "Many families struggle with ongoing medical expenses such as dialysis, medicines, and emergency care. Community donations help reduce that burden and provide hope during difficult times.",
+    date: "2026-03-22",
+    readTime: "6 min read",
+    category: "Healthcare Support",
+    categorySlug: "healthcare-support",
+    accent: "teal",
+    body: `
+## The reality many families face
+
+Healthcare costs do not pause when income is uncertain. Medicines, follow-up visits, dialysis sessions, and emergency care can create debt that affects the whole household.
+
+Z-Foundation’s **healthcare support** focus is about easing that pressure where we can—through community-funded assistance planned with care and clear limits on what we promise.
+
+## What “support” means for us
+
+We do not operate hospitals or replace government health services. Our role is to:
+
+- Help connect families with information and local resources when possible
+- Use community donations for defined medical or wellness needs we can verify
+- Encourage early care instead of delayed treatment caused by cost fear
+
+Every case is reviewed with sensitivity. We avoid public details that could harm dignity.
+
+## Why community giving matters
+
+When neighbors and donors contribute through transparent channels, families often feel less alone. Even modest, well-directed support can cover a prescription refill, transport to an appointment, or a short-term need while other arrangements are made.
+
+## A note on expectations
+
+We share this article to explain **why** healthcare assistance is part of our mission—not to report specific patient outcomes we have not published elsewhere. As our programs grow, we will continue to communicate honestly about scope and limits.
+
+If you wish to help, visit our **Donate** page for EasyPaisa instructions or send an inquiry if you need guidance on Zakat or medical-related giving.
+    `.trim(),
+  },
+  {
+    slug: "why-education-support-matters",
+    title: "Why Education Support Matters",
+    excerpt:
+      "Access to education can change the future of an entire family. Supporting students with learning resources and educational opportunities creates long-term impact.",
+    date: "2026-03-05",
     readTime: "5 min read",
     category: "Education",
+    categorySlug: "education",
     accent: "amber",
     body: `
-## Education is recovery
+## Education as stability
 
-After disasters, children often miss months of school. Catching up without books, uniforms, or stable fees is nearly impossible. Z-Foundation treats **education support** as part of long-term recovery, not an optional extra.
+When a child can stay in school, a family gains more than grades—they gain routine, hope, and options. For underserved communities, small barriers—books, fees, uniforms, or travel—can interrupt that path.
 
-## What we funded this year
+Z-Foundation includes **education support** in our mission because learning is one of the most durable forms of help we can offer over time.
 
-1. **Core supplies** — notebooks, pens, geometry sets, and science kits for partner schools
-2. **Uniforms** — where required by schools so attendance is not blocked by cost
-3. **Scholarships** — partial fee support for families still rebuilding income
+## Practical ways support can help
 
-We publish aggregate numbers in our annual summary; this post highlights stories from the field rather than raw spreadsheets.
+Depending on resources and local need, education-related assistance may include:
 
-## From families
+- Notebooks, pens, and basic learning materials
+- Support toward school fees where families face short-term difficulty
+- Encouragement for attendance and study habits through community volunteers
 
-Parents told us that predictable support for fees reduced stress at home and helped older siblings stay in school instead of looking for daily wage work. That feedback shapes next year's budget split between supplies and scholarships.
+We prioritize clarity: we describe what we aim to fund and what we cannot promise in a given period.
 
-## How you can help
+## Long-term impact
 
-Sponsor a student's term fees, donate supplies in kind, or volunteer as a tutor during holiday catch-up weeks. Every path starts with a conversation on our contact page.
+Education rarely shows results overnight. The goal is to help students remain engaged, reduce dropout risk from preventable costs, and support families who want their children to build independent futures.
+
+## How to get involved
+
+Donors can designate education interest on our inquiry form. Volunteers with teaching, tutoring, or outreach skills are welcome to explore roles on our **Volunteer** page.
+
+We will share updates here as our education initiatives take shape—always with respect for student privacy and accurate reporting.
     `.trim(),
   },
   {
-    slug: "volunteer-days-flood-resilience",
-    title: "Volunteer days: building flood resilience together",
+    slug: "role-of-volunteers-in-social-impact",
+    title: "The Role of Volunteers in Social Impact",
     excerpt:
-      "Raising plinths, distributing dry rations, and mapping safe shelters—what we learned from recent volunteer weekends in the field.",
-    date: "2026-01-22",
-    readTime: "7 min read",
-    category: "Field updates",
+      "From social media management to outreach and technical support, volunteers help us expand our mission and connect with more communities.",
+    date: "2026-02-14",
+    readTime: "5 min read",
+    category: "Volunteers",
+    categorySlug: "volunteers",
+    accent: "indigo",
+    body: `
+## More than field work
+
+Nonprofit impact depends on people who give time as well as money. At Z-Foundation, volunteers strengthen our ability to communicate clearly, organize outreach, and maintain the digital tools that keep us reachable.
+
+## Where volunteers can contribute
+
+Roles vary by skill and availability. Examples include:
+
+- **Outreach** — Sharing verified updates and answering basic questions from the community
+- **Social media** — Helping present our mission professionally and consistently
+- **Technical support** — Website improvements, simple automation, and data handling with care
+- **Coordination** — Supporting planning, documentation, and follow-up with families or partners
+
+We do not ask volunteers to make promises on behalf of the foundation without approval. Training and boundaries matter.
+
+## A professional, respectful environment
+
+Volunteers represent Z-Foundation in public channels. We expect honest messaging—no exaggerated claims about projects we have not completed—and respect for the privacy of those we serve.
+
+## Apply when you are ready
+
+If you would like to volunteer, visit our **Volunteer** page and submit an application. We review each message and respond as capacity allows.
+
+Your time, paired with transparent governance, helps a small organization act with the discipline of a larger one.
+    `.trim(),
+  },
+  {
+    slug: "technology-transparency-in-nonprofits",
+    title: "Technology & Transparency in Nonprofits",
+    excerpt:
+      "We believe technology can improve transparency, communication, and trust in charitable work. Z-Foundation is exploring modern digital solutions for social impact.",
+    date: "2026-01-28",
+    readTime: "6 min read",
+    category: "Technology",
+    categorySlug: "technology",
     accent: "slate",
     body: `
-## Volunteers on the ground
+## Why technology belongs in our story
 
-Our **volunteer weekends** pair experienced staff with first-time helpers. Tasks range from packing ration kits to clearing drainage channels and marking evacuation routes on large-print maps for village notice boards.
+Charitable work is built on trust. Technology does not replace human judgment, but it can help organizations communicate clearly, reduce errors, and show donors how to give safely.
 
-## Safety and dignity first
+Z-Foundation is a young organization. We are intentionally exploring **simple, maintainable tools** rather than complex systems we cannot sustain.
 
-We never treat volunteer work as "free labour." Every day starts with:
+## Areas we are focusing on
 
-- A clear safety briefing and assigned roles
-- Rest breaks, shade, and drinking water
-- Respect for local decision-making—communities lead; we support
+- **Clear donation instructions** — Manual EasyPaisa flows with copy-friendly details until regulated card payments are available
+- **Structured inquiries** — Forms for donations, volunteering, and support requests with validation and email routing when SMTP is configured
+- **Accessible website** — Mobile-first layout, readable typography, and straightforward navigation
+- **Responsible automation** — Using digital channels to respond faster without losing a human tone
 
-## Measurable outcomes
+## Transparency principles
 
-In the last quarter, volunteer teams helped:
+We aim to:
 
-- Distribute **dry rations** to over two hundred households
-- Refresh **early warning** posters in twelve villages
-- Train youth volunteers as **first-point contacts** during heavy rain alerts
+- Describe what we are doing now versus what we plan for later
+- Avoid publishing impact numbers we have not verified
+- Keep donor and beneficiary information secure
+- Document decisions so volunteers and partners share the same facts
 
-## Join the next cohort
+## Looking forward
 
-We publish dates on this blog and on our social channels. If you want to bring a corporate team or a student group, write to us with your preferred dates and group size—we will match you to a suitable project.
+As registration and partnerships mature, we may add reporting dashboards, receipt tracking, or partner integrations. Any step will be announced here when it is real—not before.
+
+If you have technology skills and want to help build trustworthy systems for social good, we welcome a conversation through our volunteer application.
+    `.trim(),
+  },
+  {
+    slug: "building-stronger-community-together",
+    title: "Building a Stronger Community Together",
+    excerpt:
+      "Small acts of support can create meaningful change. Community-driven efforts help families feel supported during challenging times.",
+    date: "2026-01-08",
+    readTime: "4 min read",
+    category: "Community Stories",
+    categorySlug: "community-stories",
+    accent: "violet",
+    body: `
+## Support is often quiet
+
+Much of community care happens away from headlines: a neighbor checking in, a relative covering a bill for a week, a local group sharing food. Z-Foundation exists to **organize** that spirit with structure—so help is fair, documented, and sustainable.
+
+## What community-driven means to us
+
+We work with families and local contacts to understand need without turning hardship into public spectacle. “Community-driven” is not a slogan; it is a commitment to listen, act within our means, and report honestly.
+
+## Small actions, real weight
+
+A contribution does not have to be large to matter. Consistent small giving can:
+
+- Cover recurring medical costs partially over time
+- Keep a student supplied for a school term
+- Fund essential household items during a difficult month
+
+We focus on **meaningful** over **dramatic**—because trust is built through steady behavior.
+
+## How you can participate
+
+- **Donate** via EasyPaisa when you are able
+- **Volunteer** time that matches your skills
+- **Share** our official pages so accurate information spreads
+- **Ask questions** when something is unclear—we prefer dialogue over assumptions
+
+## Closing note
+
+This article is an invitation to think about community support as shared responsibility. We will continue to publish updates that reflect our actual work and learning, not inflated promises.
+
+Thank you for reading with care.
     `.trim(),
   },
 ];

@@ -100,6 +100,9 @@ export default function BlogArticlePage({ params }) {
             <Link href="/volunteer" className="blog-back-link blog-back-link--primary">
               Volunteer
             </Link>
+            <Link href="/donate" className="blog-back-link">
+              Donate
+            </Link>
             <Link href="/#contact" className="blog-back-link">
               Contact
             </Link>
