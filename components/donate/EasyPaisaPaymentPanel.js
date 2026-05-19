@@ -100,7 +100,7 @@ export default function EasyPaisaPaymentPanel() {
           id="donate-wa-note"
           type="text"
           className="donate-wa-note__input"
-          placeholder="Optional — helps us match your payment"
+          placeholder="This helps our team verify your donation quickly and accurately"
           value={waNote}
           onChange={(e) => setWaNote(e.target.value)}
           maxLength={200}

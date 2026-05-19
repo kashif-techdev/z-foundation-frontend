@@ -41,15 +41,13 @@ export default function DonatePage() {
               How to donate
             </h2>
             <ol className="donate-steps__list">
-              <li>Open the <strong>EasyPaisa</strong> app on your phone.</li>
+              <li>Open the <strong>EasyPaisa</strong> app .</li>
               <li>
-                Choose <strong>Send Money</strong> and enter the mobile number and account
-                title shown above.
+                Select <strong>Send Money</strong> and enter the mobile number.
               </li>
               <li>Enter the amount you wish to give and complete the transfer.</li>
               <li>
-                Optionally use <strong>Notify us on WhatsApp</strong> with your transaction
-                reference so we can match your payment faster.
+               Share your receipt on WhatsApp for confirmation
               </li>
             </ol>
           </section>
@@ -59,8 +57,8 @@ export default function DonatePage() {
               Inquiry or receipt
             </h2>
             <p className="donate-inquiry-intro">
-              For corporate giving, Zakat allocation, in-kind support, or if you need a
-              written acknowledgment, send us a short message—we reply by email.
+            For Zakat, Sadqah, sponsorships, or larger contributions,
+             please contact us directly so we can assist you properly
             </p>
             <DonateInquiryForm />
           </section>
