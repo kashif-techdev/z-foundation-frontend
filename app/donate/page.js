@@ -27,10 +27,10 @@ export default function DonatePage() {
           <header className="donate-page__hero">
             <h1 className="standpage__title">Donate to Z-Foundation</h1>
             <p className="standpage__lead donate-page__lead">
-              Your gift funds healthcare, education, and basic needs for underserved
-              communities. We are not yet registered for card gateways (e.g. Stripe), so
-              donations are accepted manually through{" "}
-              <strong>EasyPaisa</strong>—quick, transparent, and familiar in Pakistan.
+            Every donation brings hope to families struggling with poverty, 
+            illness, hunger, and hardship. Your support helps provide
+             medical care, education, and emergency assistance to people 
+             who need it most across Pakistan.
             </p>
           </header>
 

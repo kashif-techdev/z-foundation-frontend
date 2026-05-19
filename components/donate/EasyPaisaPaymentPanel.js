@@ -34,12 +34,9 @@ export default function EasyPaisaPaymentPanel() {
           <i className="fas fa-mobile-screen" />
         </span>
         <div>
-          <h2 className="donate-payment-card__title" id="easypaisa-heading">
-            Pay with EasyPaisa
-          </h2>
           <p className="donate-payment-card__subtitle">
-            Send money directly from your EasyPaisa app. No card processing on this
-            website—we verify transfers manually.
+          Support Z-Foundation securely through EasyPaisa. After completing your donation,
+          you may share your transaction screenshot on WhatsApp for confirmation and record keeping.
           </p>
         </div>
       </div>
