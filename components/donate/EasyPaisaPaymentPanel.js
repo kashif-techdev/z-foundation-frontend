@@ -94,19 +94,6 @@ export default function EasyPaisaPaymentPanel() {
         </a>
       </div>
 
-      <div className="donate-wa-note">
-        <label htmlFor="donate-wa-note">Optional note for WhatsApp (e.g. transaction ID)</label>
-        <input
-          id="donate-wa-note"
-          type="text"
-          className="donate-wa-note__input"
-          placeholder="This helps our team verify your donation quickly and accurately"
-          value={waNote}
-          onChange={(e) => setWaNote(e.target.value)}
-          maxLength={200}
-          autoComplete="off"
-        />
-      </div>
 
       <p className="donate-payment-footnote">
         <i className="fas fa-circle-info" aria-hidden="true" />
