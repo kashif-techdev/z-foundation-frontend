@@ -13,7 +13,7 @@ const WHY = [
   {
     icon: "fa-heart",
     title: "Direct impact",
-    text: "Your time supports flood-affected communities, health outreach, and education where it is needed most.",
+    text: "Your time supports  health outreach, and education where it is needed most.",
   },
   {
     icon: "fa-users",
