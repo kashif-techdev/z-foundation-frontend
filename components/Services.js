@@ -19,7 +19,7 @@ const SERVICES = [
   {
     title: "Basic needs",
     description:
-      "Food, clothing, shelter, and essential support for families facing hardship.",
+      "essential support for families facing hardship.",
     image: "/images/food.jpg",
   },
 ];
