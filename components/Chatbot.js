@@ -38,7 +38,7 @@ function getChatbotResponse(userMessage) {
     lowerMessage.includes("give") ||
     lowerMessage.includes("money")
   ) {
-    return `Thank you for your interest in supporting Z-Foundation! 🙏\n\nYou can donate by:\n📧 **Email:** ${CONTACT_INFO.email}\n📞 **Mobile:** ${CONTACT_INFO.mobile}\n💬 **WhatsApp:** [Click to chat](https://wa.me/${CONTACT_INFO.whatsapp})\n\nYour support helps us provide:\n• Healthcare\n• Education\n• Basic needs (food, clothing, shelter)\n\nEvery contribution makes a difference! 💙`;
+    return `Thank you for your interest in supporting Z-Foundation! 🙏\n\n**Donate via EasyPaisa:** open the **Donate** page from the menu for wallet details (03330202415 — Muhammad Kashif) and simple steps. Card payments are not available yet.\n\nYou can also reach us:\n📧 **Email:** ${CONTACT_INFO.email}\n📞 **Mobile:** ${CONTACT_INFO.mobile}\n💬 **WhatsApp:** [Click to chat](https://wa.me/${CONTACT_INFO.whatsapp})\n\nYour support helps us provide:\n• Healthcare\n• Education\n• Basic needs (food, clothing, shelter)\n\nEvery contribution makes a difference! 💙`;
   }
 
   // Services queries

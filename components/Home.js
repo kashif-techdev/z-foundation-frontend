@@ -20,7 +20,7 @@ export default function Home() {
             we provide <TypingText />
           </div>
           <div className="home-cta-row">
-            <Link href="#contact" className="cta-link cta-link--donate">
+            <Link href="/donate" className="cta-link cta-link--donate">
               Donate us
             </Link>
             <Link href="/volunteer" className="cta-link cta-link--volunteer">

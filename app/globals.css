@@ -3590,3 +3590,267 @@ footer a {
     margin-bottom: 12px;
   }
 }
+
+/* Donate page — EasyPaisa manual payment (matches standpage / site blues) */
+.donate-page__inner {
+  max-width: 720px;
+}
+
+.donate-page__hero {
+  margin-bottom: 28px;
+}
+
+.donate-page__lead {
+  max-width: none;
+}
+
+.donate-section-title {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+.donate-payment-card {
+  background: #fff;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 16px;
+  padding: 24px 22px 22px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 36px rgba(15, 23, 42, 0.06);
+}
+
+.donate-payment-card__header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.donate-payment-card__badge {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  color: #047857;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.donate-payment-card__title {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px;
+}
+
+.donate-payment-card__subtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+.donate-payment-details {
+  margin: 0 0 18px;
+}
+
+.donate-payment-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.donate-payment-row:last-child {
+  border-bottom: none;
+}
+
+.donate-payment-row dt {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
+}
+
+.donate-payment-row dd {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.donate-payment-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  font-variant-numeric: tabular-nums;
+}
+
+.donate-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #1e40af;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.donate-copy-btn:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.donate-payment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.donate-copy-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #5f86b9 0%, #4a6fa0 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(95, 134, 185, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.donate-copy-all-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(95, 134, 185, 0.4);
+}
+
+.donate-wa-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background: #25d366;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.donate-wa-link:hover {
+  background: #20bd5a;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.donate-wa-note {
+  margin-bottom: 16px;
+}
+
+.donate-wa-note label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.donate-wa-note__input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+}
+
+.donate-wa-note__input:focus {
+  border-color: #5f86b9;
+  box-shadow: 0 0 0 3px rgba(95, 134, 185, 0.2);
+}
+
+.donate-payment-footnote {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #64748b;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.donate-payment-footnote i {
+  margin-top: 2px;
+  color: #5f86b9;
+}
+
+.donate-steps {
+  margin-bottom: 36px;
+}
+
+.donate-steps__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.donate-steps__list li {
+  margin-bottom: 10px;
+}
+
+.donate-steps__list li:last-child {
+  margin-bottom: 0;
+}
+
+.donate-inquiry-section {
+  margin-top: 8px;
+}
+
+.donate-inquiry-intro {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #64748b;
+  margin: 0 0 20px;
+}
+
+@media (max-width: 520px) {
+  .donate-payment-row {
+    grid-template-columns: 1fr;
+  }
+
+  .donate-payment-actions {
+    flex-direction: column;
+  }
+
+  .donate-copy-all-btn,
+  .donate-wa-link {
+    justify-content: center;
+    width: 100%;
+  }
+}
