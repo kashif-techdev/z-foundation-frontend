@@ -6,19 +6,19 @@ import VolunteerApplicationForm from "@/components/forms/VolunteerApplicationFor
 export const metadata = {
   title: "Volunteer | Z-Foundation",
   description:
-    "Join Z-Foundation as a volunteer—field weekends, health camps, education support, and remote skills. Learn how we work and how to get started.",
+    "Join Z-Foundation as a volunteer—field weekends, education support, and remote skills. Learn how we work and how to get started.",
 };
 
 const WHY = [
   {
     icon: "fa-heart",
     title: "Direct impact",
-    text: "Your time supports  health outreach, and education where it is needed most.",
+    text: "Your efforts directly support patients, struggling families, medical assistance campaigns, health outreach programs, and educational support initiatives.",
   },
   {
     icon: "fa-users",
     title: "Work with locals",
-    text: "We plan every activity with community leaders so efforts stay respectful, safe, and useful after we leave.",
+    text: "We work closely with local communities, hospitals, educators, and volunteers to ensure support reaches the right people with dignity and care."
   },
   {
     icon: "fa-shield-halved",
@@ -31,27 +31,22 @@ const ROLES = [
   {
     icon: "fa-seedling",
     title: "Field & relief",
-    text: "Weekend drives: ration packing, sanitation kits, light construction, and site prep alongside trained staff.",
+    text: "Support hospital visits, patient assistance drives, medicine distribution, community outreach, and emergency support activities for families in need.",
     accent: "teal",
-  },
-  {
-    icon: "fa-stethoscope",
-    title: "Health camps",
-    text: "Licensed medics and nurses for screening; non-medical volunteers for registration, crowd flow, and logistics.",
-    accent: "ocean",
-  },
-  {
-    icon: "fa-book-open",
-    title: "Education",
-    text: "Holiday catch-up sessions, reading support, and distribution of books and uniforms with local schools.",
-    accent: "amber",
   },
   {
     icon: "fa-laptop",
     title: "Skills from anywhere",
-    text: "Design, writing, translation, data, and fundraising help—remote contributions matter too.",
+    text: "Join remotely as part of our design, content, social media, fundraising, development, AI, blockchain, or IT support teams helping us grow our impact digitally.",
     accent: "slate",
   },
+  {
+    icon: "fa-book-open",
+    title: "Education",
+    text: "Help students through tutoring, mentorship, digital literacy, educational campaigns, and distribution of learning resources to underserved communities.",
+    accent: "amber",
+  },
+  
 ];
 
 const STEPS = [
@@ -98,8 +93,10 @@ export default function VolunteerPage() {
             <p className="volunteer-hero__eyebrow">Get involved</p>
             <h1 className="volunteer-hero__title">Volunteer with Z-Foundation</h1>
             <p className="volunteer-hero__lead">
-              Whether you can spare a weekend on the ground or an hour a week online, there is a meaningful way to help.
-              Read how we work—then tell us how you would like to contribute.
+            Help us support patients, families, and underserved communities through healthcare assistance,
+            education support, and technology-driven social impact.
+            From helping patients facing serious medical challenges to supporting 
+            students and contributing through digital volunteering, every effort creates meaningful change.
             </p>
             <div className="volunteer-hero__actions">
               <Link href="/#contact" className="volunteer-btn volunteer-btn--primary">
