@@ -23,6 +23,12 @@ const MEMBERS = [
     designation: "University of Technology, Nowshera ",
   },
   {
+    name: "Waqar Jamil Qazi ",
+    role: "Civil site engineer ",
+    image: "/images/irshad.jpeg",
+    designation: "Ghulam rashool and company (GRC) ",
+  },
+  {
     name: "DR. MUHAMMAD ALI SIKANDAR ",
     role: "Professor",
     image: "/images/member-sikandar.jpeg",
