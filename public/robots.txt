@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://z-foundation.vercel.app/sitemap.xml
+Sitemap: https://zifoundation.com/sitemap.xml
