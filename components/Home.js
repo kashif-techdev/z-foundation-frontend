@@ -2,7 +2,7 @@ import Link from "next/link";
 import TypingText from "./TypingText";
 import Chatbot from "./Chatbot";
 
-const FACEBOOK_URL = "#";
+const FACEBOOK_URL = "https://www.facebook.com/share/1BzqmcbT9L/";
 const INSTAGRAM_URL = "#";
 // WhatsApp number - format: country code + number (remove any spaces/dashes)
 const WHATSAPP_NUMBER = "923330202415"; // Pakistan: 92 + 3330202415
