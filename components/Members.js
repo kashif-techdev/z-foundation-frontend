@@ -25,7 +25,7 @@ const MEMBERS = [
   {
     name: "Waqar Jamil Qazi ",
     role: "Civil site engineer ",
-    image: "/images/irshad.jpeg",
+    image: "/images/waqar.jpeg",
     designation: "Ghulam rashool and company (GRC) ",
   },
   {
